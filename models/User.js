@@ -20,7 +20,7 @@ User.init(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unidue: true,
+            unique: true,
             validate: {
                 isEmail: true
             }
