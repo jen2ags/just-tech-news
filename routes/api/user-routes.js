@@ -4,7 +4,7 @@ const { User } = require('../../models');
 //GET api/Users
 router.get('/', (req, res) => {
     //access our User model and run .findAll() method
-    User.findAll({ 
+    user.findAll({ 
         attributes: { exclude: ['password'] }
     })
         .then(dbUserData => res.json(dbUserData))
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
 //GET /api/users/1
 router.get('/:id', (req, res) => {
-    User.findOne({
+    user.findOne({
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
 //POST /api/users
 router.post('/', (req,res) => {
     //expects {username: 'Lernato', email: 'lernatino@gmail.com', password: 'password1234'}
-    User.create({
+    user.create({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
@@ -53,7 +53,7 @@ router.post('/', (req,res) => {
 router.post('/login', (req,res) => {
     // Query operation
     //expects {email: "lernantino@gmail.com", password: 'password1234'}
-    User.findOne({
+    user.findOne({
         where: {
             email: req.body.email
         }
@@ -79,7 +79,7 @@ router.put('/:id', (req, res) => {
     //expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
     //if req.body has exact key/value pairs to match the model, you can just use 'req.body' instead
-    User.update(req.body, {
+    user.update(req.body, {
         individualHooks: true,
         where: {
             id: req.params.id
@@ -100,7 +100,7 @@ router.put('/:id', (req, res) => {
 
 //DELETE /api/users/1
 router.delete('/:id', (req, res) => {
-    User.destroy({
+    user.destroy({
         where: {
             id: req.params.id
         }
