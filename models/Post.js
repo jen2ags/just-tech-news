@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { post } = require('../routes/api/post-routes');
+const { post } = require('../controllers/api/post-routes');
 
 //create our Post model
 class Post extends Model {
