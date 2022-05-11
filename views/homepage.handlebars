@@ -1,8 +1,9 @@
 <ol class="post-list">
+    {{#each posts as |post|}}
     <li>
         <article class="post">
             <div class="title">
-                <a href="{{post_url}}" target="_blank">{{title}}</a>
+                <a href="{{Post_url}}" target="_blank">{{title}}</a>
                 <span>({{post_url}})</span>
             </div>
             <div class="meta">
@@ -13,4 +14,5 @@
             </div>
         </article>
     </li>
+    {{/each}}
 </ol>
